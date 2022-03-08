@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+       table  tr td, th, table{
+            border-collapse: collapse;
+            border: 2px solid blue;
+           width: 20px;
+           height: 20px;
+        }
+        
+    </style>
 </head>
 <body>
     <?php
-    define('HOST', "localhost");
-    $DB_host="localhost";
-    $DB_user="root";
-    $DB_password="chazard10.3";
-    $DB_name="db_mis";
-    $connection= mysqli_connect($DB_host,$DB_user,$DB_password,$DB_name);
+    include('./mia.php');
+
       if (!$connection) {
-       echo 'connection error'.mysqli_connect_error();
+       echo 'connection error '.mysqli_connect_error();
     }else{
-        $sql="SELECT * FROM mis_users";
-        $select = mysqli_query($connection, $sql) or die("Error occurred".mysqli_error($connection));
-    }
+        $sql="SELECT * FROM registration";
+        $select = mysqli_query($connection, $sql) or die("Error occurred".mysqli_error());
+        if($select){
+         $mia= mysqli_num_rows($select);
+         if($mia>0){
+        
     ?>
     <table>
         <tr>
@@ -30,18 +41,27 @@
             <th>email</th>
             <th>Nationality</th>
         </tr>
-    </table>
+    
     <?php
+    
     while ($row=mysqli_fetch_assoc($select)){
-    }
+         
         ?>
     <tr>
-        <td><?=$row['user_id']?></td>
-        <td><?=$row['firstname']?></td>
-        <td><?=$row['lastname']?></td>
-        <td><?=$row['gender']?></td>
-        <td><?=$row['email']?></td>
-        <td><?=$row['nationality']?></td>
+        <td><?php echo md5( $row['id'])?></td>
+        <td><?php echo $row['firstname']?></td>   
+        <td><?php echo $row['lastname']?></td>
+        <td><?php echo $row['gender']?></td>
+        <td><?php echo $row['email']?></td>
+        <td><?php echo $row['nationality']?></td>
     </tr>
+    <?php
+    }
+    }
+        }
+    }
+    // echo var_dump($row);
+    ?>
+    </table>
 </body>
 </html>
