@@ -27,7 +27,7 @@ button{
     margin-bottom: 20px;
     margin-left: 20px;
 }
-#lastname,#nationality,#password{
+#ln,#nationality,#password{
     margin-left: 110px;
     padding-left: 50px;
     padding-bottom: 10px;
@@ -37,7 +37,7 @@ button{
     padding-left: 50px;
     padding-bottom: 10px;
 }
-#telephone{
+#tel{
     margin-left: 105px;
     padding-left: 50px;
     padding-bottom: 10px;
@@ -66,7 +66,7 @@ select{
     padding-left: 50px;
     padding-bottom: 10px;
 }
-#firstname{
+#fn{
     margin-left: 107px;
     padding-left: 50px;
     padding-bottom: 10px;
