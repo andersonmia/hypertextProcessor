@@ -25,7 +25,7 @@ if(($password!=$cpassword)||($firstname=="")||($lastname=="")||($email=="")||($u
         $insertQuery = "INSERT INTO signup(firstname,lastname,email,telephone,username,password,gender,nationality) VALUES('$firstname','$lastname','$email','$telephone','$username','$validpassword', '$gender', '$nationality')";
         $insert = mysqli_query($connect,$insertQuery) or die("an error occured:" .mySqli_error($connect));
         if($insert){
-            echo "You are fully registered";
+            echo "<h3>You are fully registered</h3>";
         }else{
             echo "Registration failed";
         }
